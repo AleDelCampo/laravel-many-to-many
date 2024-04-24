@@ -65,6 +65,21 @@
 
       </div>
 
+      <div class="mb-4">
+        <label class="mb-2" for="">Tecnologie:</label>
+        <div class="d-flex gap-2">
+          @foreach($technologies as $technology)
+          <div class="form-check">
+            <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" class="form-check-input"
+              id="technology-{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'checked' :
+            '' }}
+            >
+            <label for="technology-{{ $technology->id }}" class="form-check-label">{{ $technology->title }}</label>
+          </div>
+          @endforeach
+        </div>
+      </div>
+
       <button type="submit" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i> Registra!!</button>
 
     </form>

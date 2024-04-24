@@ -74,8 +74,9 @@ class AdminProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('projects.edit', compact('project', 'types'));
+        return view('projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -86,6 +87,13 @@ class AdminProjectController extends Controller
         $request->validated();
 
         $project->update($request->all());
+
+        if ($request->hasFile('image')) {
+            $path = Storage::disk('public')->put('project_images', $request->image);
+            $project->image = $path;
+        }
+    
+        $project->technologies()->sync($request->technologies);
 
         $project->save();
 
