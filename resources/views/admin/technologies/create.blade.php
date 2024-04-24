@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+<body class="show-bg">
+
     <div class="container">
         <h1>Crea una nuova tecnologia</h1>
         <form action="{{ route('admin.technologies.store') }}" method="POST" enctype="multipart/form-data">
@@ -16,4 +19,6 @@
             <button type="submit" class="btn btn-primary">Crea tecnologia</button>
         </form>
     </div>
+
+</body>
 @endsection

@@ -46,17 +46,6 @@
       </div>
 
       <div class="mb-2">
-        <label for="technology" class="form-label">Tecnologie Utilizzate: </label>
-        <input type="text" class="form-control @error('technology') is-invalid @enderror" id="technology"
-          value="{{ old('technology') ?? $project->technology }}" name="technology">
-        @error('technology')
-        <div class="invalid-feedback">
-          {{$message}}
-        </div>
-        @enderror
-      </div>
-
-      <div class="mb-2">
 
         <label for="type_id">Categoria</label>
 

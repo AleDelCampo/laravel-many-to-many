@@ -33,17 +33,17 @@ class TechnologyController extends Controller
     public function store(StoreTechnologyRequest $request)
     {
         $request->validated();
-    
+
         $newTechnology = new Technology();
         $newTechnology->title = $request->title;
-    
+
         if ($request->hasFile('preview')) {
             $path = $request->file('preview')->store('technology_preview', 'public');
             $newTechnology->preview = $path;
         }
-    
+
         $newTechnology->save();
-    
+
         return redirect()->route('admin');
     }
 
