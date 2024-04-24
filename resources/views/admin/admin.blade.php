@@ -10,14 +10,6 @@
         </h1>
     </div>
 
-    <div class="container text-center mt-4">
-        <a href="{{ route('projects.create') }}" class="btn btn-outline-success">Crea Nuovo Progetto</a>
-        <a href="{{ route('admin.types.show') }}" class="btn btn-outline-success">Visualizza Categorie</a>
-        <a href="{{ route('admin.types.create') }}" class="btn btn-outline-success">Crea Nuova Categoria</a>
-        <a href="{{ route('admin.technologies.show') }}" class="btn btn-outline-success">Visualizza Tecnologie</a>
-        <a href="{{ route('admin.technologies.create') }}" class="btn btn-outline-success">Crea Nuova Tecnologia</a>
-    </div>
-
     <div class="d-flex justify-content-center text-center gap-4 mt-5">
         @foreach($projects as $project)
         <div class="pointer">
@@ -27,13 +19,15 @@
             <div class="mb-2">
                 <img class="img-size" src="{{ asset('storage/' . $project->image) }}" alt="Copertina immagine">
             </div>
-            @foreach($project->technologies as $technology)
-            @if ($technology->preview)
-            <div class="mb-2">
-                <img class="img-size" src="{{ asset('storage/' . $technology->preview) }}" alt="Anteprima tecnologia">
+
+            
+            <div class="mb-2 d-flex justify-content-center gap-2">
+                @foreach($project->technologies as $technology)
+                <img class="technologies-size" src="{{ asset('storage/' . $technology->preview) }}" alt="Anteprima tecnologia">
+                @endforeach
             </div>
-            @endif
-            @endforeach
+           
+            
             <div class="d-flex justify-content-center gap-4">
                 <a href="{{ route('projects.edit', ['project' => $project->id]) }}"
                     class="btn btn-outline-primary">Modifica</a>

@@ -21,17 +21,17 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="deleteModalLabel{{$technology->id}}">Conferma</h5>
-                            <button technology="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             Elimini la Categoria?
                         </div>
                         <div class="modal-footer">
-                            <button technology="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
                             <form action="{{route('admin.technologies.destroy', $technology->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button technology="submit" class="btn btn-danger">Elimina</button>
+                                <button type="submit" class="btn btn-danger">Elimina</button>
                             </form>
                         </div>
                     </div>
