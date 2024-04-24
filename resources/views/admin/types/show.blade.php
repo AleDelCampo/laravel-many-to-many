@@ -8,8 +8,8 @@
         @foreach($types as $type)
             <div class="card mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">{{$type->title}}</h5>
-                    <p class="card-text">{{$type->description}}</p>
+                    <h5 class="card-title">{{ $type->title }}</h5>
+                    <p class="card-text">{{ $type->description }}</p>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{$type->id}}">
                         Elimina!!
                     </button>

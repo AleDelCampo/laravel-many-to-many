@@ -14,6 +14,8 @@
     <a href="{{ route('projects.create') }}" class="btn btn-outline-success">Crea Nuovo Progetto</a>
     <a href="{{ route('admin.types.show') }}"  class="btn btn-outline-success">Visualizza Categorie</a>
     <a href="{{ route('admin.types.create') }}" class="btn btn-outline-success">Crea Nuova Categoria</a>
+    <a href="{{ route('admin.technologies.show') }}"  class="btn btn-outline-success">Visualizza Tecnologie</a>
+    <a href="{{ route('admin.technologies.create') }}" class="btn btn-outline-success">Crea Nuova Tecnologia</a>
 </div>
 
 <div class="d-flex justify-content-center text-center gap-4 mt-5">

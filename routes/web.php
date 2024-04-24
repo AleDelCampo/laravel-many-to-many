@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\Admin\AdminProjectController;
+use App\Http\Controllers\TechnologyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,13 +44,16 @@ Route::get('/admin', [AdminProjectController::class, 'index'])->middleware(['aut
 //Rotta accessibile a tutti per la sola Visualizzazione.
 
 Route::get('/', [ProjectController::class, 'index']);
-
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
+
 Route::get('/admin/types', [TypeController::class, 'show'])->name('admin.types.show');
-
 Route::delete('/admin/types/{type}', [TypeController::class, 'destroy'])->name('admin.types.destroy');
-
 Route::get('/admin/types/create', [TypeController::class, 'create'])->name('admin.types.create');
-
 Route::post('/admin/types', [TypeController::class, 'store'])->name('admin.types.store');
+
+
+Route::get('/admin/technologies', [TechnologyController::class, 'show'])->name('admin.technologies.show');
+Route::delete('/admin/technologies/{technology}', [TechnologyController::class, 'destroy'])->name('admin.technologies.destroy');
+Route::get('/admin/technologies/create', [TechnologyController::class, 'create'])->name('admin.technologies.create');
+Route::post('/admin/technologies', [TechnologyController::class, 'store'])->name('admin.technologies.store');

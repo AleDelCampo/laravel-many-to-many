@@ -27,7 +27,9 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required|max:100',
             'description' => 'required|max:8000',
             'image' => 'file|max:1024|nullable|mimes:jpg,png',
-            'type_id' => 'nullable|exists:types,id'
+            'type_id' => 'nullable|exists:types,id',
+            'technology_id' => 'nullable|exists:types,id',
+            'preview' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 
@@ -40,7 +42,9 @@ class StoreProjectRequest extends FormRequest
             'description.max' => "Puoi usare al massimo :max caratteri",
             'image.mimes' => "Inserisci un immagine",
             'image.max' => "Peso limite 1024 KB",
-            'type_id.exists' => "PERCHE' NON PROVI AD HACKERARMI I ...."
+            'type_id.exists' => "PERCHE' NON PROVI AD HACKERARMI I ....",
+            'technology_id.exists' => "Ma almeno una cliccala!!",
+            'preview.max' => "Peso limite 2048 KB"
         ];
     }
 }

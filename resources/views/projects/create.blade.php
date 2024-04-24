@@ -43,17 +43,6 @@
       </div>
 
       <div class="mb-2">
-        <label for="technology" class="form-label">Tecnologie Utilizzate: </label>
-        <input type="text" class="form-control @error('technology') is-invalid @enderror" id="technology"
-          name="technology" value="{{ old('technology') }}">
-        @error('technology')
-        <div class="invalid-feedback">
-          {{$message}}
-        </div>
-        @enderror
-      </div>
-
-      <div class="mb-2">
 
         <label for="type_id">Categoria: </label>
 
@@ -68,6 +57,29 @@
         </select>
 
       </div>
+
+      <div class="mb-4">
+        <label class="mb-2" for="">Tecnologie: </label>
+        <div class="d-flex gap-2">
+
+            @foreach($technologies as $technology)
+            <div class="form-check ">
+
+                <input 
+                    type="checkbox" 
+                    name="technologies[]"
+                    value="{{$technology->id}}" 
+                    class="form-check-input" 
+                    id="technology-{{$technology->id}}"
+
+                    {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}
+                > 
+
+                <label for="technology-{{$technology->id}}" class="form-check-label">{{$technology->title}}</label>
+            </div>
+            @endforeach
+
+        </div>
 
       <button type="submit" class="btn btn-primary"><i class="fa-regular fa-paper-plane"></i> Registra!!</button>
 
