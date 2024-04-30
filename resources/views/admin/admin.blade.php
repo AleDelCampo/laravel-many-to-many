@@ -29,9 +29,9 @@
            
             
             <div class="d-flex justify-content-center gap-4">
-                <a href="{{ route('projects.edit', ['project' => $project->id]) }}"
+                <a href="{{ route('projects.edit', ['project' => $project]) }}"
                     class="btn btn-outline-primary">Modifica</a>
-                <form action="{{ route('projects.destroy', ['project' => $project->id]) }}" method="POST">
+                <form action="{{ route('projects.destroy', ['project' => $project]) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-outline-danger">Elimina</button>

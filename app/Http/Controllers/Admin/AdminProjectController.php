@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 //Il nostro Admin Controller differisce momentaneamente dal ProjectController creato inizialmente, perchè è corretto che sia l'admin a poter
 //gestire il tutto, tramite auth sulla rotta admin.
@@ -53,6 +55,8 @@ class AdminProjectController extends Controller
 
         $newProject->fill($request->all());
 
+        $newProject->slug = Str::slug($request->title);
+            
         $newProject->save();
 
         $newProject->technologies()->attach($request->technologies);
@@ -85,6 +89,8 @@ class AdminProjectController extends Controller
     public function update(StoreProjectRequest $request, Project $project)
     {
         $request->validated();
+
+        $project->slug = Str::slug($request->title);
 
         $project->update($request->all());
 

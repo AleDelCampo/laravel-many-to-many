@@ -10,7 +10,7 @@
 
     <div class="d-flex justify-content-center text-center gap-4 mt-5">
         @foreach($projects as $project)
-        <a class="text-decoration-none text-white" href="{{ route('projects.show', $project->id) }}">
+        <a class="text-decoration-none text-white" href="{{ route('projects.show', $project) }}">
         <div class="pointer">
             <h2>{{ $project->title }}</h2>
                 <small>{{ $project->type?->title }}</small>

@@ -7,7 +7,7 @@
   <div class="container py-4">
     <h1>Modifica il Progetto</h1>
 
-    <form action="{{route('projects.update', $project->id)}}" method="POST">
+    <form action="{{route('projects.update', $project)}}" method="POST">
       @csrf
 
       @method("PUT")
