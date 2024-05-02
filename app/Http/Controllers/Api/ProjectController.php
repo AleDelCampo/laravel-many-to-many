@@ -30,11 +30,7 @@ class ProjectController extends Controller
             ]);
 
         } else {
-            return response()->json([
-                "success" => false,
-                "error" => "Project not found (404)"
-            ]);
+            return response()->view('errors.404');
         }
-
     }
 }
