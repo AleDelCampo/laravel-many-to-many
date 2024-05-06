@@ -9,7 +9,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ $technology->title }}</h5>
-                    <img src="{{ asset('storage/' . $technology->preview) }}" class="img-fluid" alt="Anteprima">
+                    <img src="{{ asset('storage/' . $technology->preview) }}" class="w-50" alt="Anteprima">
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{$technology->id}}">
                         Elimina!!
                     </button>
